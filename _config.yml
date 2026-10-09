@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "dark" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Malachi Whitford, Ph.D."
 title_separator          : "-"
 name                     : &name "Malachi Whitford, Ph.D."
