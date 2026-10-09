@@ -282,10 +282,10 @@ defaults:
       author_profile: true
       share: true
       comment: true
-  # Ongoing Research
+  # _ongoing
   - scope:
       path: ""
-      type: Ongoing Research
+      type: _ongoing
     values:
       layout: talk
       author_profile: true
