@@ -9,9 +9,9 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "air" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Malachi Whitford, Ph.D."
+title                    : "Malachi Whitford, yPh.D."
 title_separator          : "-"
-name                     : &name "Malachi Whitford, Ph.D."
+name                     : &name "Malachi Whitford, xPh.D."
 description              : &description "Academic Portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://malachi-whitford.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
@@ -24,7 +24,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile2.jpg"
-  name             : "Malachi Whitford, Ph.D."
+  name             : "Malachi Whitford, wPh.D."
   pronouns         : "he/him"
   bio              : "Short biography for the left-hand sidebar"
   location         : "Earth"
