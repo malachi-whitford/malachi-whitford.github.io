@@ -37,3 +37,8 @@
     "layout/sidebar",
     "layout/json_cv"
 ;
+
+/* Custom CSS to remove circular crop on profile picture */
+.author__avatar img {
+    border-radius: 0 !important;
+}
