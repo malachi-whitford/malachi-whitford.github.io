@@ -68,15 +68,15 @@ body {
 /* --- Content Readability Fix --- */
 /* Dark backing for the main text area */
 .page {
-    background-color: rgba(26, 32, 44, 0.0) !important; /* Bumped opacity slightly to 90% for better contrast */
+    background-color: rgba(26, 32, 44, 0.2) !important; /* Bumped opacity slightly to 90% for better contrast */
     padding: 25px !important;
     border-radius: 10px;
 }
 
 /* Dark backing for the left sidebar profile area */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.0) !important; 
-    padding: 20px !important;
+    background-color: rgba(26, 32, 44, 0.2) !important; 
+    padding: 25px !important;
     border-radius: 10px;
 }
 
