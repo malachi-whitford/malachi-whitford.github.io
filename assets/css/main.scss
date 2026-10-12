@@ -42,3 +42,16 @@
 .author__avatar img {
     border-radius: 0 !important;
 }
+
+/* Custom CSS to widen the main content area */
+.page {
+  padding-right: 0 !important;
+}
+
+.page__content {
+  max-width: 100% !important;
+}
+
+.page__inner-wrap {
+  max-width: 100% !important;
+}
