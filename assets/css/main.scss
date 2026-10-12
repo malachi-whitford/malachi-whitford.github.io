@@ -107,3 +107,9 @@ a {
 a:hover {
     color: #bae6fd !important; /* Lighter blue on hover */
 }
+
+
+/* Widen the entire site container */
+div#main {
+    max-width: 1600px !important; /* Increases the maximum width of the content area */
+}
