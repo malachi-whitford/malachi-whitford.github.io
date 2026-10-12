@@ -80,11 +80,13 @@ body {
     border-radius: 10px;
 }
 
-/* Pull the sidebar left only on desktop screens */
+/* Pull the sidebar left and widen it only on desktop screens */
 @media (min-width: 1024px) {
     .sidebar {
         position: relative !important;
         left: -80px !important; 
+        width: 350px !important; /* Default is usually around 300px */
+        max-width: 350px !important;
     }
 }
 
