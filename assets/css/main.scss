@@ -79,3 +79,25 @@ body {
     padding: 20px !important;
     border-radius: 10px;
 }
+
+/* --- Custom Font Colors --- */
+
+/* 1. Main paragraph text */
+body, .page__content p, .sidebar {
+    color: #241E20 !important; /* Crisp white/light gray */
+}
+
+/* 2. Heading colors (Titles, H1, H2, H3) */
+h1, h2, h3, h4, h5, h6, .page__title {
+    color: #38bdf8 !important; /* Light blue accent */
+}
+
+/* 3. Link colors */
+a {
+    color: #38bdf8 !important; 
+}
+
+/* 4. Link colors when hovered over with the mouse */
+a:hover {
+    color: #bae6fd !important; /* Lighter blue on hover */
+}
