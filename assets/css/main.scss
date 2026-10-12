@@ -70,7 +70,7 @@ body {
 /* --- Content Readability Fix --- */
 /* Dark backing for the main text area */
 .page {
-    background-color: rgba(26, 32, 44, 0.2) !important; /* Bumped opacity slightly to 90% for better contrast */
+    background-color: rgba(26, 32, 44, 0.) !important; /* Bumped opacity slightly to 90% for better contrast */
     padding: 5px !important;
     border-radius: 10px;
 }
@@ -78,20 +78,20 @@ body {
 /* Dark backing for the left sidebar profile area */
 /* Dark backing and positioning for the left sidebar profile area */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.10) !important; 
+    background-color: rgba(26, 32, 44, 0.) !important; 
     padding: 20px !important;
     border-radius: 10px;
     
     /* Pulls the sidebar to the left */
     position: relative !important;
-    left: -40px !important; 
+    left: -80px !important; 
 }
 
 /* --- Custom Font Colors --- */
 
 /* 1. Main paragraph text */
 body, .page__content p, .sidebar {
-    color: #241E20 !important; /* Crisp white/light gray */
+    color: #FFFFFF !important; /* Crisp white/light gray */
 }
 
 /* 2. Heading colors (Titles, H1, H2, H3) */
