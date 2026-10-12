@@ -106,3 +106,12 @@ a {
 a:hover {
     color: #ffffff !important; 
 }
+
+/* Global Highlight Style */
+mark {
+    background-color: #38bdf8 !important; 
+    color: #1a202c !important; 
+    font-weight: bold !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+}
