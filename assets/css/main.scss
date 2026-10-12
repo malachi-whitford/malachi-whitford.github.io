@@ -45,7 +45,7 @@
 
 /* Widen the entire site container but leave room for the background */
 div#main {
-    max-width: 1200px !important; /* Reduced from 1600px to expose more of the background */
+    max-width: 1200px !important; 
 }
 
 /* Global Background Image */
@@ -60,7 +60,7 @@ body {
 
 /* Main content area width and readability background */
 .page {
-    background-color: rgba(26, 32, 44, 0.0) !important; /* Reduced opacity to 70% */
+    background-color: rgba(26, 32, 44, 0.0) !important; 
     padding: 25px !important; 
     border-radius: 10px;
 }
@@ -75,10 +75,11 @@ body {
 
 /* Sidebar profile area readability background */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.0) !important; /* Reduced opacity to 70% */
+    background-color: rgba(26, 32, 44, 0.0) !important; 
     padding: 20px !important;
     border-radius: 10px;
 }
+
 /* Pull the sidebar left and prevent the main text from dropping below it */
 @media (min-width: 1024px) {
     .sidebar {
@@ -89,56 +90,65 @@ body {
     }
     
     .page {
-        /* Forces the main text area to take up the remaining space minus the sidebar and a small gap */
-        width: calc(100% - 200px) !important; 
+        /* Increased the subtracted value from 200px to 250px to create a safety gap */
+        width: calc(100% - 250px) !important; 
         float: right !important;
     }
 }
 
 /* Custom Font Colors */
-body, .page__content p, .sidebar {
-    color: #FFFFFF !important; 
-}
-
-h1, h2, h3, h4, h5, h6, .page__title {
-    color: #5ed1ff !important; 
-      font-weight: bold
-}
-
-a {
-    color: #ffffff !important; 
-   font-weight: bold
-}
-
-a:hover {
-    color: #ffffff !important; 
-}
-
-/* Custom Font Colors and Global Highlight */
 body {
     color: #FFFFFF !important; 
 }
 
-/* Applies permanent highlight to all paragraphs and lists */
-.page__content p, .page__content li, .sidebar p, .sidebar li {
+/* Highlighted Headers (White Background, Dark Text, Bold) */
+h1, h2, h3, h4, h5, h6, .page__title {
+    background-color: #FFFFFF !important; 
+    color: #3d454a !important; /* Changed text to your dark grey so it is readable on the white background */
+    font-weight: bold !important; 
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+    display: inline-block !important; /* Prevents the highlight box from stretching across the entire screen empty space */
+}
+
+/* Links */
+a {
+    color: #ffffff !important; 
+    font-weight: bold !important;
+}
+
+a:hover {
+    color: #5ed1ff !important; /* Added your light blue back as a hover effect */
+}
+
+/* Main text paragraphs */
+.page__content p, .sidebar p {
     background-color: #3d454a !important; 
     color: #FFFFFF !important; 
+    font-weight: normal !important; /* explicitly forces text to NOT be bold */
     padding: 4px 8px !important;
     border-radius: 5px !important;
 }
 
- .sidebar li {
+/* Sidebar List Items (Consolidated your two separate blocks) */
+.sidebar li {
     background-color: #3d454a !important; 
     color: #5ed1ff !important; 
-    font-weight: bold !important;
+    font-weight: bold !important; 
     padding: 4px 8px !important;
     border-radius: 5px !important;
-}
-
-
-/* Allow sidebar text to wrap instead of cutting off */
-.sidebar li {
     white-space: normal !important;
     word-wrap: break-word !important;
     overflow: visible !important;
+    margin-bottom: 5px !important; /* Adds space so the highlighted items don't touch */
+}
+
+/* Main Content List Items */
+.page__content li {
+    background-color: #3d454a !important; 
+    color: #FFFFFF !important; 
+    font-weight: normal !important; /* Standard text not bold */
+    padding: 4px 8px !important;
+    border-radius: 5px !important;
+    margin-bottom: 5px !important;
 }
