@@ -79,14 +79,19 @@ body {
     padding: 20px !important;
     border-radius: 10px;
 }
-
-/* Pull the sidebar left and widen it only on desktop screens */
+/* Pull the sidebar left and prevent the main text from dropping below it */
 @media (min-width: 1024px) {
     .sidebar {
         position: relative !important;
         left: -80px !important; 
-        width: 350px !important; /* Default is usually around 300px */
+        width: 350px !important; 
         max-width: 350px !important;
+    }
+    
+    .page {
+        /* Forces the main text area to take up the remaining space minus the sidebar and a small gap */
+        width: calc(100% - 380px) !important; 
+        float: right !important;
     }
 }
 
