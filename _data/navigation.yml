@@ -21,7 +21,7 @@ main:
     url: /software/
         
   - title: "OER Materials"
-    url: /year-archive/
+    url: /oer_materials/
     
   - title: "CV"
     url: /cv/
