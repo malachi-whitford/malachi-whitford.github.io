@@ -43,73 +43,64 @@
     border-radius: 0 !important;
 }
 
-/* Custom CSS to widen the main content area */
+/* Widen the entire site container */
+div#main {
+    max-width: 1600px !important;
+}
+
+/* Global Background Image */
+body {
+    background-image: url('/images/background.png') !important;
+    background-size: cover !important; 
+    background-attachment: fixed !important; 
+    background-position: center center !important; 
+    background-repeat: no-repeat !important;
+    background-color: #A3A0A0 !important; 
+}
+
+/* Main content area width and readability background */
 .page {
-  padding-right: 0 !important;
+    background-color: rgba(26, 32, 44, 0.9) !important; 
+    padding: 25px !important; 
+    border-radius: 10px;
 }
 
 .page__content {
-  max-width: 100% !important;
+    max-width: 100% !important;
 }
 
 .page__inner-wrap {
-  max-width: 100% !important;
+    max-width: 100% !important;
 }
 
-/* --- Global Background Image --- */
-body {
-    background-image: url('/images/background.png') !important;
-    background-size: cover !important; /* Forces image to fill the entire screen */
-    background-attachment: fixed !important; 
-    background-position: center center !important; /* Keeps the focal point in the middle */
-    background-repeat: no-repeat !important;
-    background-color: #A3A0A0 !important; /* Fallback color if the image loads slowly */
-}
-
-/* --- Content Readability Fix --- */
-/* Dark backing for the main text area */
-.page {
-    background-color: rgba(26, 32, 44, 0.0) !important; /* Bumped opacity slightly to 90% for better contrast */
-    padding: 5px !important;
-    border-radius: 10px;
-}
-
-/* Dark backing for the left sidebar profile area */
-/* Dark backing and positioning for the left sidebar profile area */
+/* Sidebar profile area readability background */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.0) !important; 
+    background-color: rgba(26, 32, 44, 0.9) !important; 
     padding: 20px !important;
     border-radius: 10px;
-    
-    /* Pulls the sidebar to the left */
-    position: relative !important;
-    left: -80px !important; 
 }
 
-/* --- Custom Font Colors --- */
+/* Pull the sidebar left only on desktop screens */
+@media (min-width: 1024px) {
+    .sidebar {
+        position: relative !important;
+        left: -80px !important; 
+    }
+}
 
-/* 1. Main paragraph text */
+/* Custom Font Colors */
 body, .page__content p, .sidebar {
-    color: #FFFFFF !important; /* Crisp white/light gray */
+    color: #FFFFFF !important; 
 }
 
-/* 2. Heading colors (Titles, H1, H2, H3) */
 h1, h2, h3, h4, h5, h6, .page__title {
-    color: #38bdf8 !important; /* Light blue accent */
+    color: #38bdf8 !important; 
 }
 
-/* 3. Link colors */
 a {
     color: #38bdf8 !important; 
 }
 
-/* 4. Link colors when hovered over with the mouse */
 a:hover {
-    color: #bae6fd !important; /* Lighter blue on hover */
-}
-
-
-/* Widen the entire site container */
-div#main {
-    max-width: 1600px !important; /* Increases the maximum width of the content area */
+    color: #bae6fd !important; 
 }
