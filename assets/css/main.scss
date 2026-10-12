@@ -84,13 +84,13 @@ body {
     .sidebar {
         position: relative !important;
         left: -80px !important; 
-        width: 350px !important; 
+        width: 200px !important; 
         max-width: 350px !important;
     }
     
     .page {
         /* Forces the main text area to take up the remaining space minus the sidebar and a small gap */
-        width: calc(100% - 380px) !important; 
+        width: calc(100% - 200px) !important; 
         float: right !important;
     }
 }
@@ -101,7 +101,7 @@ body, .page__content p, .sidebar {
 }
 
 h1, h2, h3, h4, h5, h6, .page__title {
-    color: #ffffff !important; 
+    color: #5ed1ff !important; 
       font-weight: bold
 }
 
@@ -127,6 +127,15 @@ body {
     padding: 4px 8px !important;
     border-radius: 5px !important;
 }
+
+ .sidebar li {
+    background-color: #3d454a !important; 
+    color: #5ed1ff !important; 
+    font-weight: bold !important;
+    padding: 4px 8px !important;
+    border-radius: 5px !important;
+}
+
 
 /* Allow sidebar text to wrap instead of cutting off */
 .sidebar li {
