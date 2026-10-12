@@ -76,10 +76,15 @@ body {
 }
 
 /* Dark backing for the left sidebar profile area */
+/* Dark backing and positioning for the left sidebar profile area */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.2) !important; 
-    padding: 5px !important;
+    background-color: rgba(26, 32, 44, 0.10) !important; 
+    padding: 20px !important;
     border-radius: 10px;
+    
+    /* Pulls the sidebar to the left */
+    position: relative !important;
+    left: -40px !important; 
 }
 
 /* --- Custom Font Colors --- */
