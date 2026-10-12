@@ -59,10 +59,12 @@
 /* --- Global Background Image --- */
 body {
     background-image: url('/images/background.png') !important;
-    background-size: cover !important; 
+    background-size: contain !important; 
     background-attachment: fixed !important; 
     background-position: center center !important; /* Forces the image to center rather than crop to the top */
     background-repeat: no-repeat !important;
+   /* Fills the remaining empty space with your dark theme color */
+    background-color: #1a202c !important;
 }
 
 /* --- Content Readability Fix --- */
