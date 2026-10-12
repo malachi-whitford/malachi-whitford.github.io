@@ -43,9 +43,9 @@
     border-radius: 0 !important;
 }
 
-/* Widen the entire site container */
+/* Widen the entire site container but leave room for the background */
 div#main {
-    max-width: 1600px !important;
+    max-width: 1200px !important; /* Reduced from 1600px to expose more of the background */
 }
 
 /* Global Background Image */
@@ -60,7 +60,7 @@ body {
 
 /* Main content area width and readability background */
 .page {
-    background-color: rgba(26, 32, 44, 0.9) !important; 
+    background-color: rgba(26, 32, 44, 0.7) !important; /* Reduced opacity to 70% */
     padding: 25px !important; 
     border-radius: 10px;
 }
@@ -75,7 +75,7 @@ body {
 
 /* Sidebar profile area readability background */
 .sidebar {
-    background-color: rgba(26, 32, 44, 0.9) !important; 
+    background-color: rgba(26, 32, 44, 0.7) !important; /* Reduced opacity to 70% */
     padding: 20px !important;
     border-radius: 10px;
 }
