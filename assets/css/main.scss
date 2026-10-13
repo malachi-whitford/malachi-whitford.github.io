@@ -58,14 +58,14 @@ body {
     background-color: #A3A0A0 !important; 
 }
 
-/* Main content area width and readability background */
-.page {
+/* Main content area width and readability background (Now applies to Archives too) */
+.page, .archive {
     background-color: rgba(26, 32, 44, 0.0) !important; 
     padding: 25px !important; 
     border-radius: 10px;
 }
 
-.page__content {
+.page__content, .archive {
     max-width: 100% !important;
 }
 
@@ -89,8 +89,8 @@ body {
         max-width: 200px !important;
     }
     
-    .page {
-        /* Increased the subtracted value from 200px to 250px to create a safety gap */
+    /* Applies the width calculation to both standard pages and archive pages */
+    .page, .archive {
         width: calc(100% - 250px) !important; 
         float: right !important;
     }
@@ -102,35 +102,40 @@ body {
 }
 
 /* Highlighted Headers (White Background, Dark Text, Bold) */
-h1, h2, h3, h4, h5, h6, .page__title {
+h1, h2, h3, h4, h5, h6, .page__title, .archive__title {
     background-color: #FFFFFF !important; 
-    color: #3d454a !important; /* Changed text to your dark grey so it is readable on the white background */
+    color: #3d454a !important; 
     font-weight: bold !important; 
     padding: 5px 10px !important;
     border-radius: 5px !important;
-    display: inline-block !important; /* Prevents the highlight box from stretching across the entire screen empty space */
+    display: inline-block !important; 
 }
 
-/* Links */
+/* Forces links inside headers to be dark grey so they don't vanish against the white background */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .page__title a, .archive__item-title a {
+    color: #3d454a !important;
+}
+
+/* Standard Links */
 a {
     color: #ffffff !important; 
     font-weight: bold !important;
 }
 
 a:hover {
-    color: #5ed1ff !important; /* Added your light blue back as a hover effect */
+    color: #5ed1ff !important; 
 }
 
-/* Main text paragraphs */
-.page__content p, .sidebar p {
+/* Main text paragraphs (Now applies to Archives too) */
+.page__content p, .sidebar p, .archive p {
     background-color: #3d454a !important; 
     color: #FFFFFF !important; 
-    font-weight: normal !important; /* explicitly forces text to NOT be bold */
+    font-weight: normal !important; 
     padding: 4px 8px !important;
     border-radius: 5px !important;
 }
 
-/* Sidebar List Items (Consolidated your two separate blocks) */
+/* Sidebar List Items */
 .sidebar li {
     background-color: #3d454a !important; 
     color: #5ed1ff !important; 
@@ -140,14 +145,14 @@ a:hover {
     white-space: normal !important;
     word-wrap: break-word !important;
     overflow: visible !important;
-    margin-bottom: 5px !important; /* Adds space so the highlighted items don't touch */
+    margin-bottom: 5px !important; 
 }
 
-/* Main Content List Items */
-.page__content li {
+/* Main Content List Items (Now applies to Archives too) */
+.page__content li, .archive li {
     background-color: #3d454a !important; 
     color: #FFFFFF !important; 
-    font-weight: normal !important; /* Standard text not bold */
+    font-weight: normal !important; 
     padding: 4px 8px !important;
     border-radius: 5px !important;
     margin-bottom: 5px !important;
