@@ -9,6 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
+
 ## Education
 * **Ph.D. in Ecology**, San Diego State University & University of California, Davis (2015 to 2020)
   * Dissertation: Determinants of Predation Success: A Holistic Examination of The Predator Prey Interactions Between Rattlesnakes and Kangaroo Rats
