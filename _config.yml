@@ -26,24 +26,24 @@ author:
   avatar           : "profile2.jpg"
   name             : "Malachi Whitford, Ph.D."
   pronouns         : "he/him"
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
+#  bio              : "Short biography for the left-hand sidebar"
+  location         : "Clovis, CA"
   employer         : "Clovis Community College"
-  uri              : # URL
+#  uri              : # URL
   email            : "MalachiWhitford@Gmail.com" 
 
   # Academic websites
-  academia         : # URL
-  arxiv            : # URL - Update with the correct link to your profile
+#  academia         : # URL
+ # arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=fqDMcoMAAAAJ&hl=en&oi=ao"
-  inspire-hep      : # URL
-  impactstory      : # URL
+  #inspire-hep      : # URL
+  #impactstory      : # URL
   orcid            : "https://orcid.org/0000-0003-2516-2607"
-  semantic         : # URL
-  ssrn             : # URL
-  pubmed           : 
+  #semantic         : # URL
+  #ssrn             : # URL
+  #pubmed           : 
   researchgate     : "https://www.researchgate.net/profile/Malachi-Whitford?ev=hdr_xprf"
-  scopus           : # URL
+  #scopus           : # URL
   zotero           : # URL
 
 
