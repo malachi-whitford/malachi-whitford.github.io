@@ -2,22 +2,27 @@
 permalink: /
 title: "About Me"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-## Welcome to the Academic Portfolio of Dr. Malachi Whitford
+## Welcome
 
-I am an ecologist and a Professor of Environmental Science and Biology at Clovis Community College. My work integrates behavioral ecology, kinematics, and field biology to understand the complex dynamics of predator and prey interactions.
+I'm Malachi Whitford, an ecologist and Professor of Environmental Science and Biology at Clovis Community College, where I founded the Environmental Science Program. I study predator–prey interactions in the field. I combine behavioral ecology, kinematics, and high-speed videography to work out what decides an ambush: when a predator strikes, when prey escapes, and what in the environment tips the balance.
 
-### Research Focus
-My primary research examines the evolutionary arms race between native reptiles and small mammals across the deserts and central valleys of California. By utilizing passive acoustic monitoring devices, advanced videography, and trail cameras, I investigate how environmental variables impact the strike performance of rattlesnakes and the evasive leaping capabilities of kangaroo rats.
+### Research
+My research focuses on ambush predators and the prey that evade them. In California, I study how invasive grasses change the habitat structure kangaroo rats depend on to escape rattlesnake strikes. Beyond California, I study snake–bat interactions at cave emergences, including Puerto Rican boas that hunt bats as they leave their roosts. I'm also setting up a new study of coachwhips at a cave in Texas. In the field I rely on high-speed video, trail cameras, and passive acoustic monitoring to record encounters that last only a fraction of a second.
 
-### Undergraduate Mentorship and Teaching
-A central pillar of my pedagogy involves integrating students directly into active ecological research. I design courses in wildlife conservation, plant science, and environmental science with a strong emphasis on applied methodology. I currently direct multiple independent undergraduate research teams studying invasive squamate habitats, predator deterrent signaling in pocket mice, and species distribution modeling for native plants. I also serve as the faculty advisor for the Central Valley Conservation Club, organizing regional field excursions to natural instructional sites to bridge classroom theory with practical conservation.
+### Teaching and Mentorship
+I believe students learn ecology best by doing it. I teach environmental science, biology, and soil science, and I developed two field courses, including BIOL 17: Wildlife and Plant Field Methods. Every course I design emphasizes applied methods and time outdoors. I also mentor several undergraduate research teams. Their current projects include habitat use by invasive geckos, deterrent signaling in pocket mice, and species distribution modeling for native plants.
 
-### Technical Capabilities
-To support both research and education, I actively develop custom tools and applications. This includes building spatial distribution models using R and Python, creating custom web applications for data collection via Google Apps Script, and utilizing Blender and 3D printing to manufacture specialized mounts and equipment for field biology.
+Outside the classroom, I co-founded the Conservation Club with my students and serve as its faculty advisor. Together we organize field trips across the region that put classroom concepts into practice. I'm also a docent for the Sierra Foothill Conservancy.
 
-*Explore the navigation menu to view my academic publications, current student research projects, and open educational resources.*
+### Program Leadership and Service
+In addition to directing the Environmental Science Program, I lead the college's Water Treatment and Distribution program. I serve on the Curriculum Committee and on the Zero Textbook Cost Workgroup, which reflects my commitment to keeping course materials free and accessible.
+
+### Tools I Build
+Much of my research and teaching runs on tools I make myself. I build species distribution models in R and Python. For data collection and the classroom, I write custom web apps in Google Apps Script, including field data loggers, video and trail camera review tools, and interactive simulations. I also use Blender and 3D printing to make camera mounts and other field equipment.
+
+*Use the navigation menu to explore my publications, current student research, and open educational resources.*
