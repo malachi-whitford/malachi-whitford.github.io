@@ -1,0 +1,164 @@
+---
+layout: single
+permalink: /nature_research_group/
+title: "NATURE Research Group"
+author_profile: true
+---
+
+<style>
+  .nature { line-height: 1.6; }
+  .nature h2 { margin-top: 2.2em; padding-bottom: 0.25em; border-bottom: 2px solid #2f6b3a; color: #2f6b3a; }
+  .nature .lede { font-size: 1.1em; color: #333; }
+  .nature .acronym { font-size: 0.95em; color: #555; font-style: italic; margin-top: -0.5em; }
+
+  .nature .stats { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+  .nature .stat { flex: 1 1 140px; background: #f3f7f2; border-left: 4px solid #2f6b3a; padding: 0.8em 1em; border-radius: 4px; }
+  .nature .stat .num { display: block; font-size: 1.8em; font-weight: 700; color: #2f6b3a; line-height: 1.1; }
+  .nature .stat .label { font-size: 0.85em; color: #444; }
+
+  .nature .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1em; margin-top: 1em; }
+  .nature .project { border: 1px solid #d9e2d6; border-radius: 6px; padding: 1em 1.2em; background: #fff; }
+  .nature .project h3 { margin: 0 0 0.4em; font-size: 1.05em; color: #1f4a28; }
+  .nature .project p { margin: 0 0 0.6em; font-size: 0.92em; }
+  .nature .project .team { font-size: 0.85em; color: #555; margin: 0; }
+  .nature .tag { display: inline-block; font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.05em; background: #e4efe1; color: #2f6b3a; padding: 0.15em 0.6em; border-radius: 10px; margin-bottom: 0.6em; }
+
+  .nature ul.outputs { padding-left: 1.2em; }
+  .nature ul.outputs li { margin-bottom: 0.7em; font-size: 0.93em; }
+  .nature .student { font-weight: 600; }
+
+  .nature .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.4em 1.5em; padding-left: 1.2em; }
+  .nature .members li { font-size: 0.93em; }
+  .nature .members .yrs { color: #666; font-size: 0.9em; }
+
+  .nature .join { background: #f3f7f2; border-radius: 6px; padding: 1.2em 1.4em; margin-top: 1em; }
+  .nature .join ul { margin-bottom: 0.6em; }
+  .nature .note { font-size: 0.85em; color: #666; }
+</style>
+
+<div class="nature">
+
+  <p class="acronym">Novel Approaches to Terrestrial Undergraduate Research in Ecology</p>
+
+  <p class="lede">
+    The NATURE Research Group brings Clovis Community College students into the full research process, from the first field observation to a peer-reviewed publication.
+  </p>
+
+  <p>
+    Most community college research experiences focus on teaching methods. NATURE goes further: I treat undergraduates much like graduate students, with more guidance but the same high standard of personal accountability. Students design and run studies, analyze their own data, present at research symposia, and are expected to work toward publishing in peer-reviewed journals.
+  </p>
+  <p>
+    Many of our projects begin as observations in my field courses, <em>BIOL 7: Field Biology</em> and <em>BIOL 17: Wildlife and Plant Conservation Field Methods</em>. Students early in their academic paths often find it hard to frame a question within existing research and ecological theory. So I guide each student toward an ongoing project that matches their interests and let their curiosity grow from there.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><span class="num">13</span><span class="label">undergraduate researchers mentored since 2023</span></div>
+    <div class="stat"><span class="num">4</span><span class="label">student co-authors on a 2026 peer-reviewed paper</span></div>
+    <div class="stat"><span class="num">5</span><span class="label">student presentations at the CCC Research Symposium</span></div>
+    <div class="stat"><span class="num">4</span><span class="label">active research projects</span></div>
+  </div>
+
+  <h2>Current Projects</h2>
+  <div class="projects">
+
+    <div class="project">
+      <span class="tag">Species distribution modeling</span>
+      <h3>Invasive Squamates in California</h3>
+      <p>Using MaxEnt species distribution models, this group is identifying the habitat requirements of invasive lizards and snakes in California and projecting where they may spread under future climate scenarios.</p>
+      <p class="team">Team: J. Chandler, J. Brennan</p>
+    </div>
+
+    <div class="project">
+      <span class="tag">Species distribution modeling</span>
+      <h3>California Pipevine and Climate Change</h3>
+      <p>This group is modeling the habitat of California pipevine (<em>Aristolochia californica</em>) to test whether the apparent gap in its southern range is real or reflects undocumented populations, and whether climate change threatens those southern populations.</p>
+      <p class="team">Team: C. Hernandez</p>
+    </div>
+
+    <div class="project">
+      <span class="tag">Seed dispersal</span>
+      <h3>Gray Foxes as Seed Dispersers</h3>
+      <p>While deploying camera traps, we found gray fox (<em>Urocyon cinereoargenteus</em>) scat packed with coffeeberry (<em>Frangula californica</em>) seeds. This project tests how passing through a fox's gut affects coffeeberry germination and dispersal.</p>
+      <p class="team">Team: V. Castillo, H. Cortez</p>
+    </div>
+
+    <div class="project">
+      <span class="tag">Animal behavior</span>
+      <h3>Pocket Mouse Predator-Deterrent Signals</h3>
+      <p>Coarse-haired pocket mice (<em>Chaetodipus</em> sp.) have been seen approaching rattlesnakes and oscillating their hindquarters in what appears to be an antipredator display. Students are analyzing this behavior and the contexts in which it occurs. Future work will test how snakes respond and whether the display is an honest signal, like the displays of closely related kangaroo rats.</p>
+      <p class="team">Team: V. Uy, G. Sprenger</p>
+    </div>
+
+  </div>
+
+  <h2>Publications and Presentations</h2>
+  <p class="note"><span class="student">Bold</span> names are NATURE student researchers.</p>
+
+  <h3>Peer-Reviewed Publications</h3>
+  <ul class="outputs">
+    <li>
+      <span class="student">Hernandez, C.</span>, <span class="student">I. E. Visciglio</span>, <span class="student">F. Vang</span>, <span class="student">A. K. Serrano</span>, G. A. Freymiller, and M. D. Whitford. 2026. From Seeds to Scales: An Observation of a Kangaroo Rat (<em>Dipodomys deserti</em>) Scavenging a Desert Iguana (<em>Dipsosaurus dorsalis</em>). <em>Western Wildlife</em> 13:16&ndash;18.
+    </li>
+  </ul>
+
+  <h3>Presentations</h3>
+  <ul class="outputs">
+    <li>
+      <span class="student">Hernandez, C.</span>, <span class="student">I. E. Visciglio</span>, <span class="student">F. Vang</span>, <span class="student">A. K. Serrano</span>, G. A. Freymiller, and M. D. Whitford. 2026. From Seeds to Scale: An Observation of a Kangaroo Rat Scavenging a Desert Iguana. Clovis Community College Research Symposium, Fresno, CA.
+    </li>
+    <li>
+      <span class="student">Palafox, D.</span>, G. A. Freymiller, and M. D. Whitford. 2026. Benefits, Challenges, and Efficacy of Integrated Usage of PAMs and Machine Learning Birdcall Detection Algorithms in Avian Community Monitoring. Clovis Community College Research Symposium, Fresno, CA.
+    </li>
+    <li>
+      <span class="student">Castillo, V.</span>, G. A. Freymiller, and M. D. Whitford. 2026. Clovis Community College Field Guide, and a Visual Representation of the Importance of Scientific Illustration. Clovis Community College Research Symposium, Fresno, CA.
+    </li>
+    <li>
+      <span class="student">Ramirez, E.</span>, <span class="student">A. Serrano</span>, <span class="student">I. Visciglio</span>, <span class="student">D. Palafox</span>, and M. D. Whitford. 2026. Mediterranean House Gecko (<em>Hemidactylus turcicus</em>) Invasion Velocity Across California. Clovis Community College Research Symposium, Fresno, CA.
+    </li>
+    <li>
+      <span class="student">Hernandez, C.</span>, and M. D. Whitford. 2024. From Seeds to Scale: An Observation of a Kangaroo Rat Scavenging a Desert Iguana. Clovis Community College Research Symposium, Fresno, CA.
+    </li>
+  </ul>
+
+  <h2>Group Members</h2>
+
+  <h3>Current Students</h3>
+  <ul class="members">
+    <li>Chris Hernandez <span class="yrs">(2023&ndash;present)</span></li>
+    <li>Jheta Chandler <span class="yrs">(2025&ndash;present)</span></li>
+    <li>Dylan Palafox <span class="yrs">(2025&ndash;present)</span></li>
+    <li>James Brennan <span class="yrs">(2026&ndash;present)</span></li>
+    <li>Hilario Cortez <span class="yrs">(2026&ndash;present)</span></li>
+    <li>Vincy Uy <span class="yrs">(2026&ndash;present)</span></li>
+    <li>Gavin Sprenger <span class="yrs">(2026&ndash;present)</span></li>
+    <li>Valentine Castillo <span class="yrs">(2026&ndash;present)</span></li>
+  </ul>
+
+  <h3>Alumni</h3>
+  <ul class="members">
+    <li>Elizabeth Ramirez <span class="yrs">(2024&ndash;2026)</span></li>
+    <li>Alyssa Serrano <span class="yrs">(2025&ndash;2026)</span></li>
+    <li>Isa Visciglio <span class="yrs">(2025&ndash;2026)</span></li>
+    <li>Fiona Vang <span class="yrs">(2025&ndash;2026)</span></li>
+    <li>Haiden Del Fierro <span class="yrs">(2023&ndash;2025)</span></li>
+  </ul>
+
+  <h3>Collaborators</h3>
+  <ul class="members">
+    <li>Grace Freymiller</li>
+  </ul>
+
+  <h2>Join the Group</h2>
+  <div class="join">
+    <p>I look for curiosity and work ethic, not prior research experience. You don't need to have done research before, own specialized equipment, or have a powerful computer. Many of the tools we use run in a web browser.</p>
+    <p>NATURE members are expected to:</p>
+    <ul>
+      <li>Take ownership of their project and hold themselves to a professional standard</li>
+      <li>Collect, organize, and analyze their own data</li>
+      <li>Present their work at the CCC Research Symposium or a scientific conference</li>
+      <li>Work toward a peer-reviewed publication</li>
+    </ul>
+    <p>Most members join after taking BIOL 7 or BIOL 17, but any interested Clovis Community College student is welcome to reach out. Email me at <a href="mailto:malachiwhitford@gmail.com">malachiwhitford@gmail.com</a> with a few sentences about what interests you.</p>
+  </div>
+
+</div>
