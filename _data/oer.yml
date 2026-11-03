@@ -12,8 +12,12 @@
   items:
     - title: Wildlife and Plant Conservation Field Methods Textbook
       course: BIOL 17
-      description: A field guide and lab manual covering local California flora, fauna, and field survey techniques.
+      description: A textbook covering local California flora, fauna, and field survey techniques.
       file: biol17_wildlife_plant_conservation_textbook.pdf
+    - title: Wildlife and Plant Conservation Field Methods Lab Manual
+      course: BIOL 17
+      description: A lab manual for BIOL 17, Wildlife and Plant Conservation Field Methods.
+      file: biol17_wildlife_plant_conservation_lab_manual.pdf
     - title: Field Biology Textbook
       course: BIOL 7
       description: A textbook for BIOL 7, Field Biology.
@@ -22,9 +26,9 @@
 - section: Environmental Science
   id: environmental-science
   items:
-    - title: Environmental Science Manual
-      description: A manual for environmental science courses.
-      file: environmental_science_manual.pdf
+    - title: Environmental Science Lab Manual
+      description: A lab manual for environmental science courses.
+      file: environmental_science_lab_manual.pdf
 
 - section: Plant and Soil Science
   id: plant-soil-science
