@@ -1,0 +1,87 @@
+name: Resize gallery photos
+
+# When photos are uploaded to images/gallery/, this shrinks any that are
+# bigger than 1600 px, fixes sideways phone photos, removes hidden photo data
+# (including GPS location), and replaces spaces in file names with dashes.
+# Photos that are already small and clean are left alone.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "images/gallery/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: resize-gallery
+  cancel-in-progress: false
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - run: pip install Pillow
+
+      - name: Resize photos
+        shell: python
+        run: |
+          import os
+          from PIL import Image, ImageOps
+
+          MAX = 1600
+          EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+          changed = 0
+          for root, _, files in os.walk("images/gallery"):
+              for name in files:
+                  path = os.path.join(root, name)
+                  stem, ext = os.path.splitext(name)
+                  if ext.lower() not in EXTS:
+                      continue
+                  try:
+                      im = Image.open(path)
+                      has_exif = bool(im.getexif()) or "exif" in im.info
+                      too_big = max(im.size) > MAX
+                  except Exception as e:
+                      print("Skipping", path, e)
+                      continue
+                  clean_stem = stem.strip().replace(" ", "-").replace("(", "").replace(")", "")
+                  bad_name = clean_stem != stem or ext != ext.lower()
+                  if not (too_big or has_exif or bad_name):
+                      continue
+                  im = ImageOps.exif_transpose(im)
+                  im.thumbnail((MAX, MAX))
+                  keep_png = ext.lower() == ".png" and im.mode in ("RGBA", "LA", "P")
+                  new_ext = ".png" if keep_png else ".jpg"
+                  new_path = os.path.join(root, clean_stem + new_ext)
+                  n = 2
+                  while os.path.exists(new_path) and os.path.abspath(new_path) != os.path.abspath(path):
+                      new_path = os.path.join(root, f"{clean_stem}-{n}{new_ext}")
+                      n += 1
+                  if keep_png:
+                      im.save(new_path + ".tmp", "PNG", optimize=True)
+                  else:
+                      im.convert("RGB").save(new_path + ".tmp", "JPEG", quality=82, optimize=True, progressive=True)
+                  os.remove(path)
+                  os.replace(new_path + ".tmp", new_path)
+                  print("Resized", path, "->", new_path)
+                  changed += 1
+          print(changed, "photo(s) updated")
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A images/gallery
+          git diff --cached --quiet && exit 0
+          git commit -m "Resize gallery photos"
+          git pull --rebase
+          git push

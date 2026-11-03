@@ -10,44 +10,65 @@ author_profile: true
 <p>Footage and photos from my research on the functional kinematics of predator-prey interactions, along with field trips and fieldwork with students. The videos feature high-speed videography of rattlesnake strikes, kangaroo rat evasive leaping, and other field observations from the California deserts and Central Valley.</p>
 
 <style>
-  /* Tabs and filters: dark boxes like the rest of the site, white when selected */
+  /* NOTE: this site's theme collapses each page onto one line, so only use slash-star comments in the CSS and script here */
+
+  /* Tabs */
   .media-tabs { display: flex; gap: 0.6em; margin: 1.5em 0 1.25em; }
-  .media-tabs button, .photo-filters button {
+  .media-tabs button {
     background: #3d454a; color: #fff; border: 2px solid #3d454a; border-radius: 6px;
-    font-weight: bold; cursor: pointer; font-family: inherit;
+    font-weight: bold; cursor: pointer; font-family: inherit; padding: 0.5em 1.4em; font-size: 1.05em;
   }
-  .media-tabs button { padding: 0.5em 1.4em; font-size: 1.05em; }
-  .media-tabs button:hover, .photo-filters button:hover { border-color: #5ed1ff; }
-  .media-tabs button[aria-selected="true"], .photo-filters button.active {
-    background: #fff; color: #3d454a; border-color: #fff;
-  }
+  .media-tabs button:hover { border-color: #5ed1ff; }
+  .media-tabs button[aria-selected="true"] { background: #fff; color: #3d454a; border-color: #fff; }
   .media-panel[hidden] { display: none; }
 
+  /* Videos */
   .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25em; }
   .video-frame { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; overflow: hidden; }
   .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .video-title { font-size: 0.85em; margin: 0.4em 0 0; }
 
-  .photo-filters { display: flex; flex-wrap: wrap; gap: 0.5em; margin-bottom: 1em; }
-  .photo-filters button { padding: 0.3em 1em; font-size: 0.85em; border-radius: 999px; }
-
-  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1em; }
-  .photo-card { margin: 0; background: #3d454a; border-radius: 6px; overflow: hidden; }
-  .photo-card[hidden] { display: none; }
-  .photo-card button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-  .photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: opacity 0.15s; }
-  .photo-card button:hover img { opacity: 0.85; }
-  .photo-card figcaption { font-size: 0.8em; line-height: 1.35; padding: 0.5em 0.7em 0.6em; color: #fff; }
-  .photo-meta { display: block; color: #b8c2c8; }
+  /* Photo sections: one rotating slideshow per folder */
+  .photo-section { margin: 0 0 2.5em; }
+  .photo-section > h2 { margin-bottom: 0.6em !important; }
+  .slideshow {
+    position: relative; background: rgba(20, 24, 27, 0.92); border-radius: 10px;
+    padding: 0.75em; border: 1px solid #5a646a;
+  }
+  .slide-stage {
+    position: relative; height: min(62vh, 540px); min-height: 280px;
+    display: flex; align-items: center; justify-content: center; cursor: zoom-in;
+  }
+  .slide-stage img {
+    max-width: 100%; max-height: 100%; width: auto; height: auto;
+    object-fit: contain; border-radius: 4px; transition: opacity 0.35s;
+  }
+  .slide-stage img.fading { opacity: 0; }
+  .slide-nav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+    background: rgba(0,0,0,0.55); color: #fff; border: 0; border-radius: 50%;
+    width: 2.2em; height: 2.2em; font-size: 1.4em; line-height: 1; cursor: pointer;
+  }
+  .slide-nav:hover { background: rgba(94, 209, 255, 0.85); color: #1e2428; }
+  .slide-prev { left: 0.4em; }
+  .slide-next { right: 0.4em; }
+  .slide-count {
+    position: absolute; right: 0.6em; bottom: 0.5em; z-index: 2; font-size: 0.75em;
+    background: rgba(0,0,0,0.55); color: #fff; padding: 0.1em 0.6em; border-radius: 999px;
+  }
+  .thumbs { display: flex; gap: 0.4em; overflow-x: auto; padding: 0.6em 0 0.1em; }
+  .thumbs button { flex: 0 0 auto; padding: 0; border: 2px solid transparent; border-radius: 4px; background: none; cursor: pointer; opacity: 0.6; }
+  .thumbs button.active, .thumbs button:hover { border-color: #5ed1ff; opacity: 1; }
+  .thumbs img { height: 64px; width: auto; display: block; border-radius: 2px; }
   .gallery-empty { font-style: italic; }
 
+  /* Full-screen view */
   .lightbox {
-    position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2em;
+    position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.94);
+    display: flex; align-items: center; justify-content: center; padding: 2em;
   }
   .lightbox[hidden] { display: none; }
-  .lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 4px; }
-  .lightbox-caption { color: #eee; margin-top: 0.8em; text-align: center; max-width: 60em; font-size: 0.9em; }
+  .lightbox img { max-width: 100%; max-height: 92vh; object-fit: contain; border-radius: 4px; }
   .lightbox button {
     position: absolute; background: rgba(255,255,255,0.12); color: #fff; border: 0;
     font-size: 1.8em; width: 1.8em; height: 1.8em; border-radius: 50%; cursor: pointer; line-height: 1;
@@ -69,7 +90,7 @@ author_profile: true
     {% for video in site.data.videos %}
     <div>
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/{{ video.id }}" title="{% if video.title != '' %}{{ video.title | escape }}{% else %}YouTube video player{% endif %}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{ video.id }}" title="{% if video.title and video.title != '' %}{{ video.title | escape }}{% else %}YouTube video player{% endif %}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       {% if video.title and video.title != '' %}<p class="video-title">{{ video.title }}</p>{% endif %}
     </div>
@@ -77,47 +98,69 @@ author_profile: true
   </div>
 </section>
 
-<!-- ===== PHOTOS (edit the list in _data/gallery.yml, images go in images/gallery/) ===== -->
-<section class="media-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
-  {% assign photos = site.data.gallery %}
-  {% if photos and photos.size > 0 %}
-    {% assign categories = photos | map: "category" | compact | uniq %}
-    {% if categories.size > 1 %}
-    <div class="photo-filters">
-      <button class="active" data-filter="all">All</button>
-      {% for cat in categories %}<button data-filter="{{ cat | slugify }}">{{ cat }}</button>{% endfor %}
-    </div>
+<!-- ===== PHOTOS: every image inside a folder in images/gallery/ shows up automatically ===== -->
+{% assign gallery_files = "" | split: "" %}
+{% assign found_folders = "" %}
+{% for f in site.static_files %}
+  {% if f.path contains "/images/gallery/" %}
+    {% assign ext = f.extname | downcase %}
+    {% if ext == ".jpg" or ext == ".jpeg" or ext == ".png" or ext == ".webp" or ext == ".gif" %}
+      {% assign parts = f.path | split: "/" %}
+      {% if parts.size == 5 %}
+        {% assign gallery_files = gallery_files | push: f %}
+        {% assign found_folders = found_folders | append: parts[3] | append: "|" %}
+      {% endif %}
     {% endif %}
-    <div class="photo-grid">
-      {% for photo in photos %}
-      {% assign src = photo.file | prepend: "/images/gallery/" | prepend: base_path %}
-      {% capture meta %}{% if photo.location %}{{ photo.location }}{% endif %}{% if photo.location and photo.date %} · {% endif %}{% if photo.date %}{{ photo.date }}{% endif %}{% endcapture %}
-      <figure class="photo-card" data-category="{{ photo.category | slugify }}">
-        <button type="button" data-src="{{ src }}" data-caption="{{ photo.caption | escape }}" data-meta="{{ meta | strip | escape }}">
-          <img src="{{ src }}" alt="{{ photo.caption | default: 'Field photo' | escape }}" loading="lazy">
-        </button>
-        {% if photo.caption or meta != "" %}
-        <figcaption>{{ photo.caption }}{% if meta != "" %}<span class="photo-meta">{{ meta }}</span>{% endif %}</figcaption>
-        {% endif %}
-      </figure>
-      {% endfor %}
-    </div>
-  {% else %}
+  {% endif %}
+{% endfor %}
+{% assign found_folders = found_folders | split: "|" | uniq | sort %}
+{% assign small_words = "the,in,and,of,a,on" | split: "," %}
+{% assign section_order = "" | split: "" %}
+{% for name in site.data.gallery.order %}
+  {% if found_folders contains name %}{% assign section_order = section_order | push: name %}{% endif %}
+{% endfor %}
+{% for name in found_folders %}
+  {% unless section_order contains name %}{% assign section_order = section_order | push: name %}{% endunless %}
+{% endfor %}
+
+<section class="media-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
+  {% if section_order.size == 0 %}
     <p class="gallery-empty">Photos from research and field trips are coming soon.</p>
   {% endif %}
+  {% for folder in section_order %}
+    {% assign folder_prefix = "/images/gallery/" | append: folder | append: "/" %}
+    {% assign words = folder | replace: "_", " " | replace: "-", " " | split: " " %}
+    {% assign section_title = "" %}
+    {% for w in words %}
+      {% if forloop.first == false and small_words contains w %}{% assign tw = w %}{% else %}{% assign tw = w | capitalize %}{% endif %}
+      {% assign section_title = section_title | append: " " | append: tw %}
+    {% endfor %}
+    {% assign section_title = section_title | strip %}
+    <div class="photo-section">
+      <h2>{{ section_title }}</h2>
+      <div class="slideshow" data-photos="{% for f in gallery_files %}{% if f.path contains folder_prefix %}{{ base_path }}{{ f.path | uri_escape }}|{% endif %}{% endfor %}">
+        <div class="slide-stage" title="Click to view full screen">
+          <button class="slide-nav slide-prev" aria-label="Previous photo">&#8249;</button>
+          <img alt="{{ section_title }} photo">
+          <button class="slide-nav slide-next" aria-label="Next photo">&#8250;</button>
+          <span class="slide-count"></span>
+        </div>
+        <div class="thumbs"></div>
+      </div>
+    </div>
+  {% endfor %}
 </section>
 
 <div class="lightbox" id="lightbox" hidden>
   <button class="lb-close" aria-label="Close">&times;</button>
   <button class="lb-prev" aria-label="Previous photo">&#8249;</button>
-  <img alt="">
-  <div class="lightbox-caption"></div>
+  <img alt="Full-size photo">
   <button class="lb-next" aria-label="Next photo">&#8250;</button>
 </div>
 
 <script>
 (function () {
-  /* Tabs (the URL #photos opens the Photos tab directly) */
+  /* Tabs (a link ending in #photos opens the Photos tab directly) */
   var tabs = document.querySelectorAll('.media-tabs [role="tab"]');
   function showTab(name, updateHash) {
     tabs.forEach(function (t) {
@@ -132,52 +175,77 @@ author_profile: true
   });
   if (location.hash === '#photos') showTab('photos', false);
 
-  /* Category filters */
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.photo-card'));
-  document.querySelectorAll('.photo-filters button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.photo-filters button').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var f = btn.getAttribute('data-filter');
-      cards.forEach(function (c) { c.hidden = f !== 'all' && c.getAttribute('data-category') !== f; });
-    });
-  });
-
-  /* Lightbox */
+  /* Full-screen view */
   var lb = document.getElementById('lightbox');
   var lbImg = lb.querySelector('img');
-  var lbCap = lb.querySelector('.lightbox-caption');
-  var current = 0;
-  function visible() { return cards.filter(function (c) { return !c.hidden; }); }
-  function open(card) {
-    var list = visible();
-    current = list.indexOf(card);
-    var b = card.querySelector('button');
-    lbImg.src = b.getAttribute('data-src');
-    lbImg.alt = b.getAttribute('data-caption') || 'Field photo';
-    var cap = b.getAttribute('data-caption'), meta = b.getAttribute('data-meta');
-    lbCap.textContent = [cap, meta].filter(Boolean).join(' — ');
-    lb.hidden = false;
-    document.body.style.overflow = 'hidden';
+  var lbList = [], lbIndex = 0, lbShow = null;
+  function lbOpen(list, i, show) {
+    lbList = list; lbShow = show; lbGo(i);
+    lb.hidden = false; document.body.style.overflow = 'hidden';
+    if (show) show.paused = true;
   }
-  function close() { lb.hidden = true; document.body.style.overflow = ''; }
-  function step(d) {
-    var list = visible();
-    if (!list.length) return;
-    open(list[(current + d + list.length) % list.length]);
+  function lbGo(i) {
+    lbIndex = (i + lbList.length) % lbList.length;
+    lbImg.src = lbList[lbIndex];
+    if (lbShow) lbShow.go(lbIndex, true);
   }
-  cards.forEach(function (c) {
-    c.querySelector('button').addEventListener('click', function () { open(c); });
-  });
-  lb.querySelector('.lb-close').addEventListener('click', close);
-  lb.querySelector('.lb-prev').addEventListener('click', function () { step(-1); });
-  lb.querySelector('.lb-next').addEventListener('click', function () { step(1); });
-  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  function lbClose() {
+    lb.hidden = true; document.body.style.overflow = '';
+    if (lbShow) lbShow.paused = false;
+  }
+  lb.querySelector('.lb-close').addEventListener('click', lbClose);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { lbGo(lbIndex - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { lbGo(lbIndex + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lbClose(); });
   document.addEventListener('keydown', function (e) {
     if (lb.hidden) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') step(-1);
-    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowLeft') lbGo(lbIndex - 1);
+    if (e.key === 'ArrowRight') lbGo(lbIndex + 1);
+  });
+
+  /* Rotating slideshows, one per folder. Photos are shuffled on each visit. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var panel = document.getElementById('panel-photos');
+  document.querySelectorAll('.slideshow').forEach(function (el) {
+    var photos = el.getAttribute('data-photos').split('|').filter(Boolean);
+    if (!photos.length) { el.parentNode.style.display = 'none'; return; }
+    for (var k = photos.length - 1; k > 0; k--) {
+      var j = Math.floor(Math.random() * (k + 1)); var tmp = photos[k]; photos[k] = photos[j]; photos[j] = tmp;
+    }
+    var img = el.querySelector('.slide-stage img');
+    var count = el.querySelector('.slide-count');
+    var thumbs = el.querySelector('.thumbs');
+    var show = { index: 0, paused: false };
+    photos.forEach(function (src, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-label', 'Photo ' + (i + 1));
+      b.innerHTML = '<img loading="lazy" alt="" src="' + src + '">';
+      b.addEventListener('click', function () { show.go(i); });
+      thumbs.appendChild(b);
+    });
+    show.go = function (i, instant) {
+      show.index = (i + photos.length) % photos.length;
+      var src = photos[show.index];
+      if (instant || reduceMotion) { img.src = src; }
+      else {
+        img.classList.add('fading');
+        setTimeout(function () { img.src = src; }, 200);
+      }
+      count.textContent = (show.index + 1) + ' / ' + photos.length;
+      thumbs.querySelectorAll('button').forEach(function (b, n) { b.classList.toggle('active', n === show.index); });
+      var pre = new Image(); pre.src = photos[(show.index + 1) % photos.length];
+    };
+    img.addEventListener('load', function () { img.classList.remove('fading'); });
+    el.querySelector('.slide-prev').addEventListener('click', function (e) { e.stopPropagation(); show.go(show.index - 1); });
+    el.querySelector('.slide-next').addEventListener('click', function (e) { e.stopPropagation(); show.go(show.index + 1); });
+    el.querySelector('.slide-stage').addEventListener('click', function () { lbOpen(photos, show.index, show); });
+    el.addEventListener('mouseenter', function () { show.paused = true; });
+    el.addEventListener('mouseleave', function () { if (lb.hidden) show.paused = false; });
+    show.go(0, true);
+    if (photos.length > 1 && !reduceMotion) {
+      setInterval(function () { if (!show.paused && !panel.hidden && !document.hidden) show.go(show.index + 1); }, 5000);
+    }
   });
 })();
 </script>
