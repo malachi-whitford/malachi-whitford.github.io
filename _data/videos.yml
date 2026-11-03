@@ -1,0 +1,21 @@
+# Videos shown on the Videos & Photos page (/videos/), in this order.
+# To add a video: copy one entry and paste the YouTube video ID
+# (the part after "youtu.be/" or "watch?v=" in the link).
+# "title" is optional and appears under the video.
+
+- id: WNVHg4XnHiM
+  title: ""
+- id: 2jmqWiI9uvQ
+  title: ""
+- id: Wh_TeCdIJcs
+  title: ""
+- id: FFnsz0cn4HI
+  title: ""
+- id: pPqk3PrFH6E
+  title: ""
+- id: svz9MPebQRw
+  title: ""
+- id: WPqgr6v2iTI
+  title: ""
+- id: HTjX8YilcJg
+  title: ""

@@ -1,0 +1,183 @@
+---
+title: "Videos & Photos"
+permalink: /videos/
+layout: single
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Footage and photos from my research on the functional kinematics of predator-prey interactions, along with field trips and fieldwork with students. The videos feature high-speed videography of rattlesnake strikes, kangaroo rat evasive leaping, and other field observations from the California deserts and Central Valley.</p>
+
+<style>
+  .media-tabs { display: flex; gap: 0.5em; border-bottom: 2px solid #e5e5e5; margin: 1.5em 0 1.25em; }
+  .media-tabs button {
+    background: none; border: none; border-bottom: 3px solid transparent;
+    margin-bottom: -2px; padding: 0.5em 1em; font-size: 1em; font-weight: 600;
+    color: #777; cursor: pointer;
+  }
+  .media-tabs button[aria-selected="true"] { color: #222; border-bottom-color: #52adc8; }
+  .media-panel[hidden] { display: none; }
+
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25em; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; overflow: hidden; }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-title { font-size: 0.85em; margin: 0.4em 0 0; }
+
+  .photo-filters { display: flex; flex-wrap: wrap; gap: 0.5em; margin-bottom: 1em; }
+  .photo-filters button {
+    border: 1px solid #ccc; background: #fff; border-radius: 999px;
+    padding: 0.25em 0.9em; font-size: 0.85em; cursor: pointer;
+  }
+  .photo-filters button.active { background: #52adc8; border-color: #52adc8; color: #fff; }
+
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1em; }
+  .photo-card { margin: 0; }
+  .photo-card[hidden] { display: none; }
+  .photo-card button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; display: block; transition: opacity 0.15s; }
+  .photo-card button:hover img { opacity: 0.85; }
+  .photo-card figcaption { font-size: 0.8em; line-height: 1.35; margin-top: 0.4em; color: #444; }
+  .photo-meta { display: block; color: #888; }
+  .gallery-empty { color: #777; font-style: italic; }
+
+  .lightbox {
+    position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2em;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 4px; }
+  .lightbox-caption { color: #eee; margin-top: 0.8em; text-align: center; max-width: 60em; font-size: 0.9em; }
+  .lightbox button {
+    position: absolute; background: rgba(255,255,255,0.12); color: #fff; border: 0;
+    font-size: 1.8em; width: 1.8em; height: 1.8em; border-radius: 50%; cursor: pointer; line-height: 1;
+  }
+  .lightbox button:hover { background: rgba(255,255,255,0.25); }
+  .lightbox .lb-close { top: 0.6em; right: 0.6em; }
+  .lightbox .lb-prev { left: 0.6em; top: 50%; transform: translateY(-50%); }
+  .lightbox .lb-next { right: 0.6em; top: 50%; transform: translateY(-50%); }
+</style>
+
+<div class="media-tabs" role="tablist">
+  <button role="tab" id="tab-videos" aria-controls="panel-videos" aria-selected="true">Videos</button>
+  <button role="tab" id="tab-photos" aria-controls="panel-photos" aria-selected="false">Photos</button>
+</div>
+
+<!-- ===== VIDEOS (edit the list in _data/videos.yml) ===== -->
+<section class="media-panel" id="panel-videos" role="tabpanel" aria-labelledby="tab-videos">
+  <div class="video-grid">
+    {% for video in site.data.videos %}
+    <div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/{{ video.id }}" title="{% if video.title != '' %}{{ video.title | escape }}{% else %}YouTube video player{% endif %}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      {% if video.title and video.title != '' %}<p class="video-title">{{ video.title }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ===== PHOTOS (edit the list in _data/gallery.yml, images go in images/gallery/) ===== -->
+<section class="media-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" hidden>
+  {% assign photos = site.data.gallery %}
+  {% if photos and photos.size > 0 %}
+    {% assign categories = photos | map: "category" | compact | uniq %}
+    {% if categories.size > 1 %}
+    <div class="photo-filters">
+      <button class="active" data-filter="all">All</button>
+      {% for cat in categories %}<button data-filter="{{ cat | slugify }}">{{ cat }}</button>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="photo-grid">
+      {% for photo in photos %}
+      {% assign src = photo.file | prepend: "/images/gallery/" | prepend: base_path %}
+      {% capture meta %}{% if photo.location %}{{ photo.location }}{% endif %}{% if photo.location and photo.date %} · {% endif %}{% if photo.date %}{{ photo.date }}{% endif %}{% endcapture %}
+      <figure class="photo-card" data-category="{{ photo.category | slugify }}">
+        <button type="button" data-src="{{ src }}" data-caption="{{ photo.caption | escape }}" data-meta="{{ meta | strip | escape }}">
+          <img src="{{ src }}" alt="{{ photo.caption | default: 'Field photo' | escape }}" loading="lazy">
+        </button>
+        {% if photo.caption or meta != "" %}
+        <figcaption>{{ photo.caption }}{% if meta != "" %}<span class="photo-meta">{{ meta }}</span>{% endif %}</figcaption>
+        {% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="gallery-empty">Photos from research and field trips are coming soon.</p>
+  {% endif %}
+</section>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-prev" aria-label="Previous photo">&#8249;</button>
+  <img alt="">
+  <div class="lightbox-caption"></div>
+  <button class="lb-next" aria-label="Next photo">&#8250;</button>
+</div>
+
+<script>
+(function () {
+  // ---- Tabs (the URL #photos opens the Photos tab directly) ----
+  var tabs = document.querySelectorAll('.media-tabs [role="tab"]');
+  function showTab(name, updateHash) {
+    tabs.forEach(function (t) {
+      var on = t.id === 'tab-' + name;
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (updateHash) history.replaceState(null, '', '#' + name);
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { showTab(t.id.replace('tab-', ''), true); });
+  });
+  if (location.hash === '#photos') showTab('photos', false);
+
+  // ---- Category filters ----
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.photo-card'));
+  document.querySelectorAll('.photo-filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.photo-filters button').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      cards.forEach(function (c) { c.hidden = f !== 'all' && c.getAttribute('data-category') !== f; });
+    });
+  });
+
+  // ---- Lightbox ----
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('.lightbox-caption');
+  var current = 0;
+  function visible() { return cards.filter(function (c) { return !c.hidden; }); }
+  function open(card) {
+    var list = visible();
+    current = list.indexOf(card);
+    var b = card.querySelector('button');
+    lbImg.src = b.getAttribute('data-src');
+    lbImg.alt = b.getAttribute('data-caption') || 'Field photo';
+    var cap = b.getAttribute('data-caption'), meta = b.getAttribute('data-meta');
+    lbCap.textContent = [cap, meta].filter(Boolean).join(' — ');
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; }
+  function step(d) {
+    var list = visible();
+    if (!list.length) return;
+    open(list[(current + d + list.length) % list.length]);
+  }
+  cards.forEach(function (c) {
+    c.querySelector('button').addEventListener('click', function () { open(c); });
+  });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { step(-1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { step(1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+})();
+</script>

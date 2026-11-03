@@ -1,0 +1,24 @@
+# Photos shown on the Videos & Photos page (/videos/), in this order.
+#
+# To add a photo:
+#   1. Upload the image to images/gallery/ on GitHub
+#      (resize phone photos to about 1600 px wide first so the page loads fast).
+#   2. Copy the example entry below, remove the "# " at the start of each line,
+#      and fill it in.
+#
+# category: groups photos into filter buttons at the top of the gallery.
+#           Use any name you like, e.g. Research, Field Trips, Students, Wildlife.
+#           Photos with the same category are grouped together.
+# caption, location, date: all optional.
+#
+# - file: kangaroo-rat-arena.jpg
+#   category: Research
+#   caption: Setting up the high-speed cameras for kangaroo rat trials
+#   location: Mojave Desert, CA
+#   date: Spring 2024
+#
+# - file: biol7-carrizo.jpg
+#   category: Field Trips
+#   caption: BIOL 7 students on the Carrizo Plain trip
+#   location: Carrizo Plain National Monument
+#   date: Spring 2026
