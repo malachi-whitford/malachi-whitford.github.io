@@ -7,34 +7,102 @@ author_profile: true
 
 {% include base_path %}
 
-<h2>Field Biology Species Review Apps</h2>
-Apps to help with studying the required species for BIOL 7: Field Biology.
-<p><a href="https://script.google.com/macros/s/AKfycbxFylUSF13ZssH0HRlasaxhyFrE4v5dmbugR88Ipzh_3Uv6yo4mP7s3QwReaG6aDQtqEg/exec">Spring 2026 Species</a></p>
-<p><a href="https://script.google.com/macros/s/AKfycbyzp2lSlXjYyB51SLdiDBi0lDH6BO0mi9ims9ubihNmajnXxGYmBfhZCoRPpywq2JGz/exec">Spring 2027 Species</a></p>
+<style>
+  /* Jump-to menu */
+  .sw-jump { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.5em 0 2em; }
+  .sw-jump a {
+    background: #3d454a; border: 2px solid #3d454a; border-radius: 999px;
+    padding: 0.3em 1em; font-size: 0.85em; text-decoration: none;
+  }
+  .sw-jump a:hover { border-color: #5ed1ff; }
 
+  /* Section headers: full-width white bar with a blue accent, clearly bigger than app names */
+  .sw-section { margin: 0 0 2.5em; scroll-margin-top: 80px; }
+  .sw-section > h2 {
+    width: auto !important; font-size: 1.4em !important;
+    border-left: 8px solid #5ed1ff; padding: 0.4em 0.7em !important; margin: 0 0 0.6em !important;
+  }
+  .sw-section > p.sw-intro { display: inline-block; margin: 0 0 0.9em; }
 
-<h2>Class Simulations</h2>
+  /* App cards: each app sits in its own box */
+  .sw-card {
+    background: rgba(30, 36, 40, 0.92); border: 1px solid #5a646a; border-radius: 10px;
+    padding: 1em 1.2em 1.2em; margin: 0 0 1em 1.2em;
+  }
+  .sw-card > h3 {
+    background: none !important; color: #5ed1ff !important; padding: 0 !important;
+    font-size: 1.15em !important; margin: 0 0 0.4em !important;
+  }
+  .sw-card > h3::before { content: "\25B8\00a0"; }
+  .page__content .sw-card p, .archive .sw-card p {
+    background: none !important; padding: 0 !important; margin: 0 0 0.8em;
+  }
+  .sw-card img { max-width: 100%; border: 1px solid #5a646a; border-radius: 6px; display: block; margin-top: 0.8em; }
+  .sw-card img.sw-phone { max-width: 300px; }
 
-<p>Interactive, browser-based simulations I built to go with lecture material in my biology, environmental science, and soil science courses. They're grouped by topic. Students can change variables and watch processes like osmosis, cell tonicity, water potential, and soil infiltration happen in real time.</p>
+  /* Buttons */
+  .sw-buttons { display: flex; flex-wrap: wrap; gap: 0.6em; }
+  .sw-btn {
+    display: inline-block; background: #fff; color: #3d454a !important; border-radius: 6px;
+    padding: 0.4em 1em; font-size: 0.9em; text-decoration: none;
+  }
+  .sw-btn:hover { background: #5ed1ff; color: #1e2428 !important; }
 
-<p><a href="https://malachi-whitford.github.io/class-sims/#">Class Simulations</a></p>
+  @media (max-width: 600px) { .sw-card { margin-left: 0; } }
+</style>
 
-<p><img src="{{ base_path }}/images/class-simulations.png" alt="Screenshot of the Class Simulations site" style="max-width:100%; border:1px solid #ddd; border-radius:6px;"></p>
+<nav class="sw-jump" aria-label="Jump to section">
+  <a href="#species-review">Species Review Apps</a>
+  <a href="#class-simulations">Class Simulations</a>
+  <a href="#apps-script">Apps Script Web Apps</a>
+  <a href="#appsheet">AppSheet</a>
+</nav>
 
-<h2>Google Web Apps via Apps Script</h2>
+<section class="sw-section" id="species-review">
+  <h2>Field Biology Species Review Apps</h2>
+  <div class="sw-card">
+    <h3>BIOL 7 Species Review</h3>
+    <p>Apps to help with studying the required species for BIOL 7: Field Biology.</p>
+    <div class="sw-buttons">
+      <a class="sw-btn" href="https://script.google.com/macros/s/AKfycbxFylUSF13ZssH0HRlasaxhyFrE4v5dmbugR88Ipzh_3Uv6yo4mP7s3QwReaG6aDQtqEg/exec">Spring 2026 Species &rarr;</a>
+      <a class="sw-btn" href="https://script.google.com/macros/s/AKfycbyzp2lSlXjYyB51SLdiDBi0lDH6BO0mi9ims9ubihNmajnXxGYmBfhZCoRPpywq2JGz/exec">Spring 2027 Species &rarr;</a>
+    </div>
+  </div>
+</section>
 
-<p>These are free tools that run in Google Sheets and Google Drive. Students use them through a web link, with no software to install.</p>
+<section class="sw-section" id="class-simulations">
+  <h2>Class Simulations</h2>
+  <div class="sw-card">
+    <h3>Class Simulations Site</h3>
+    <p>Interactive, browser-based simulations I built to go with lecture material in my biology, environmental science, and soil science courses. They're grouped by topic. Students can change variables and watch processes like osmosis, cell tonicity, water potential, and soil infiltration happen in real time.</p>
+    <div class="sw-buttons">
+      <a class="sw-btn" href="https://malachi-whitford.github.io/class-sims/#">Open Class Simulations &rarr;</a>
+    </div>
+    <img src="{{ base_path }}/images/class-simulations.png" alt="Screenshot of the Class Simulations site">
+  </div>
+</section>
 
-<h3><a href="https://github.com/malachi-whitford/Trail-Camera-Review-App">Trail Camera Review App</a></h3>
+<section class="sw-section" id="apps-script">
+  <h2>Google Web Apps via Apps Script</h2>
+  <p class="sw-intro">These are free tools that run in Google Sheets and Google Drive. Students use them through a web link, with no software to install.</p>
+  <div class="sw-card">
+    <h3>Trail Camera Review App</h3>
+    <p>A web app for reviewing and tagging wildlife camera trap photos stored in Google Drive. Students sign up for a camera deployment, view the images in their browser, and tag species with autocomplete and quick keys. Every tag goes into a master dataset. Students can also browse and correct earlier tags, and the instructor has tools for setting up cameras and confirming IDs. The GitHub repository has the code and setup instructions so other instructors can use it with their own trail camera projects.</p>
+    <div class="sw-buttons">
+      <a class="sw-btn" href="https://github.com/malachi-whitford/Trail-Camera-Review-App">View on GitHub &rarr;</a>
+    </div>
+    <img src="{{ base_path }}/images/trail-camera-review-app.png" alt="Screenshot of the Trail Camera Review App">
+  </div>
+</section>
 
-<p>A web app for reviewing and tagging wildlife camera trap photos stored in Google Drive. Students sign up for a camera deployment, view the images in their browser, and tag species with autocomplete and quick keys. Every tag goes into a master dataset. Students can also browse and correct earlier tags, and the instructor has tools for setting up cameras and confirming IDs. The GitHub repository has the code and setup instructions so other instructors can use it with their own trail camera projects.</p>
-
-<p><img src="{{ base_path }}/images/trail-camera-review-app.png" alt="Screenshot of the Trail Camera Review App" style="max-width:100%; border:1px solid #ddd; border-radius:6px;"></p>
-
-<h2>Google AppSheet</h2>
-
-<h3><a href="https://www.appsheet.com/templates?appGuidString=0596e543-88db-4788-bfd2-6bfd831ded60">Field Journaling App</a></h3>
-
-<p>A mobile app for keeping field journals and logging species during field trips and fieldwork. Students record observations on their phones in the field, and the entries are saved to a shared dataset for the class to review afterward.</p>
-
-<p><img src="{{ base_path }}/images/field-journaling-app.png" alt="Screenshot of the Field Journaling App" style="max-width:300px; border:1px solid #ddd; border-radius:6px;"></p>
+<section class="sw-section" id="appsheet">
+  <h2>Google AppSheet</h2>
+  <div class="sw-card">
+    <h3>Field Journaling App</h3>
+    <p>A mobile app for keeping field journals and logging species during field trips and fieldwork. Students record observations on their phones in the field, and the entries are saved to a shared dataset for the class to review afterward.</p>
+    <div class="sw-buttons">
+      <a class="sw-btn" href="https://www.appsheet.com/templates?appGuidString=0596e543-88db-4788-bfd2-6bfd831ded60">Open in AppSheet &rarr;</a>
+    </div>
+    <img class="sw-phone" src="{{ base_path }}/images/field-journaling-app.png" alt="Screenshot of the Field Journaling App">
+  </div>
+</section>

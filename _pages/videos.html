@@ -10,13 +10,17 @@ author_profile: true
 <p>Footage and photos from my research on the functional kinematics of predator-prey interactions, along with field trips and fieldwork with students. The videos feature high-speed videography of rattlesnake strikes, kangaroo rat evasive leaping, and other field observations from the California deserts and Central Valley.</p>
 
 <style>
-  .media-tabs { display: flex; gap: 0.5em; border-bottom: 2px solid #e5e5e5; margin: 1.5em 0 1.25em; }
-  .media-tabs button {
-    background: none; border: none; border-bottom: 3px solid transparent;
-    margin-bottom: -2px; padding: 0.5em 1em; font-size: 1em; font-weight: 600;
-    color: #777; cursor: pointer;
+  /* Tabs and filters: dark boxes like the rest of the site, white when selected */
+  .media-tabs { display: flex; gap: 0.6em; margin: 1.5em 0 1.25em; }
+  .media-tabs button, .photo-filters button {
+    background: #3d454a; color: #fff; border: 2px solid #3d454a; border-radius: 6px;
+    font-weight: bold; cursor: pointer; font-family: inherit;
   }
-  .media-tabs button[aria-selected="true"] { color: #222; border-bottom-color: #52adc8; }
+  .media-tabs button { padding: 0.5em 1.4em; font-size: 1.05em; }
+  .media-tabs button:hover, .photo-filters button:hover { border-color: #5ed1ff; }
+  .media-tabs button[aria-selected="true"], .photo-filters button.active {
+    background: #fff; color: #3d454a; border-color: #fff;
+  }
   .media-panel[hidden] { display: none; }
 
   .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25em; }
@@ -25,21 +29,17 @@ author_profile: true
   .video-title { font-size: 0.85em; margin: 0.4em 0 0; }
 
   .photo-filters { display: flex; flex-wrap: wrap; gap: 0.5em; margin-bottom: 1em; }
-  .photo-filters button {
-    border: 1px solid #ccc; background: #fff; border-radius: 999px;
-    padding: 0.25em 0.9em; font-size: 0.85em; cursor: pointer;
-  }
-  .photo-filters button.active { background: #52adc8; border-color: #52adc8; color: #fff; }
+  .photo-filters button { padding: 0.3em 1em; font-size: 0.85em; border-radius: 999px; }
 
   .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1em; }
-  .photo-card { margin: 0; }
+  .photo-card { margin: 0; background: #3d454a; border-radius: 6px; overflow: hidden; }
   .photo-card[hidden] { display: none; }
   .photo-card button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-  .photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; display: block; transition: opacity 0.15s; }
+  .photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: opacity 0.15s; }
   .photo-card button:hover img { opacity: 0.85; }
-  .photo-card figcaption { font-size: 0.8em; line-height: 1.35; margin-top: 0.4em; color: #444; }
-  .photo-meta { display: block; color: #888; }
-  .gallery-empty { color: #777; font-style: italic; }
+  .photo-card figcaption { font-size: 0.8em; line-height: 1.35; padding: 0.5em 0.7em 0.6em; color: #fff; }
+  .photo-meta { display: block; color: #b8c2c8; }
+  .gallery-empty { font-style: italic; }
 
   .lightbox {
     position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9);
@@ -117,7 +117,7 @@ author_profile: true
 
 <script>
 (function () {
-  // ---- Tabs (the URL #photos opens the Photos tab directly) ----
+  /* Tabs (the URL #photos opens the Photos tab directly) */
   var tabs = document.querySelectorAll('.media-tabs [role="tab"]');
   function showTab(name, updateHash) {
     tabs.forEach(function (t) {
@@ -132,7 +132,7 @@ author_profile: true
   });
   if (location.hash === '#photos') showTab('photos', false);
 
-  // ---- Category filters ----
+  /* Category filters */
   var cards = Array.prototype.slice.call(document.querySelectorAll('.photo-card'));
   document.querySelectorAll('.photo-filters button').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -143,7 +143,7 @@ author_profile: true
     });
   });
 
-  // ---- Lightbox ----
+  /* Lightbox */
   var lb = document.getElementById('lightbox');
   var lbImg = lb.querySelector('img');
   var lbCap = lb.querySelector('.lightbox-caption');

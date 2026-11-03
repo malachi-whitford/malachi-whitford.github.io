@@ -1,24 +1,69 @@
 # Photos shown on the Videos & Photos page (/videos/), in this order.
 #
 # To add a photo:
-#   1. Upload the image to images/gallery/ on GitHub
-#      (resize phone photos to about 1600 px wide first so the page loads fast).
-#   2. Copy the example entry below, remove the "# " at the start of each line,
-#      and fill it in.
+#   1. Upload the image to images/gallery/ on GitHub.
+#      Resize phone photos to about 1600 px wide first so the page loads fast,
+#      and avoid spaces in file names (use dashes instead).
+#   2. Copy an entry below and fill it in.
 #
 # category: groups photos into filter buttons at the top of the gallery.
-#           Use any name you like, e.g. Research, Field Trips, Students, Wildlife.
-#           Photos with the same category are grouped together.
-# caption, location, date: all optional.
-#
-# - file: kangaroo-rat-arena.jpg
-#   category: Research
-#   caption: Setting up the high-speed cameras for kangaroo rat trials
-#   location: Mojave Desert, CA
-#   date: Spring 2024
-#
-# - file: biol7-carrizo.jpg
-#   category: Field Trips
-#   caption: BIOL 7 students on the Carrizo Plain trip
-#   location: Carrizo Plain National Monument
-#   date: Spring 2026
+#           Use any name you like. Photos with the same category share a button.
+# caption, location, date: all optional. Leave a line out if you don't need it.
+
+- file: 2025-10-field-trip-01.jpg
+  category: Field Trips
+  caption: Students getting ready for fieldwork
+  date: October 2025
+
+- file: 2025-10-field-trip-02.jpg
+  category: Field Trips
+  caption: Students exploring the forest
+  date: October 2025
+
+- file: 2025-10-field-trip-03.jpg
+  category: Field Trips
+  caption: Hands-on fieldwork with students
+  date: October 2025
+
+- file: 2025-10-field-trip-04.jpg
+  category: Field Trips
+  caption: A chipmunk up close
+  date: October 2025
+
+- file: 2026-04-field-trip-01.jpg
+  category: Field Trips
+  caption: A lizard up close
+  date: April 2026
+
+- file: 2026-04-field-trip-02.jpg
+  category: Field Trips
+  caption: Night fieldwork
+  date: April 2026
+
+- file: 2026-04-field-trip-03.jpg
+  category: Field Trips
+  caption: Night fieldwork
+  date: April 2026
+
+- file: night-fieldwork.jpg
+  category: Field Trips
+  caption: Night fieldwork with students
+
+- file: trail-cam-2025-10-07.jpg
+  category: Trail Cameras
+  caption: Trail camera capture
+  date: October 7, 2025
+
+- file: trail-cam-2025-10-14.jpg
+  category: Trail Cameras
+  caption: Trail camera capture
+  date: October 14, 2025
+
+- file: trail-cam-2025-10-16.jpg
+  category: Trail Cameras
+  caption: Trail camera capture
+  date: October 16, 2025
+
+- file: talk.jpg
+  category: Talks
+  caption: Presenting research on snake-bat interactions
