@@ -5,6 +5,8 @@ permalink: /oer_materials/
 author_profile: true
 ---
 
+{% include base_path %}
+
 <p>These Open Educational Resources (OER) are freely available for download and use in academic instruction.</p>
 
 <p>
@@ -12,12 +14,31 @@ author_profile: true
 Unless otherwise stated, all materials on this page are licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a> (CC BY-NC-SA 4.0). You may share and adapt them for non-commercial purposes, provided you give credit as specified in each work and distribute any adaptations under the same license.
 </p>
 
-<h3>Wildlife and Plant Conservation Field Methods (BIOL 17)</h3>
-<p>A comprehensive field guide and lab manual covering local California flora, fauna, and field survey techniques.</p>
-<a href="/oer_materials/biology_17_field_manual.pdf" class="btn btn--info">Download Field Manual</a>
+<!-- The books on this page are listed in _data/oer.yml. Upload PDFs to the oer_materials/ folder. -->
 
-<br><br>
+<nav class="sw-jump" aria-label="Jump to section">
+  {% for s in site.data.oer %}<a href="#{{ s.id }}">{{ s.section }}</a>{% endfor %}
+</nav>
 
-<h3>Environmental Science Interactive Study Guide</h3>
-<p>A complete dataset and flashcard deck for identifying regional taxa, designed for integration with Anki or Knowt.</p>
-<a href="/oer_materials/environmental_science_study_guide.zip" class="btn btn--info">Download Study Guide</a>
+{% for s in site.data.oer %}
+<section class="sw-section" id="{{ s.id }}">
+  <h2>{{ s.section }}</h2>
+  {% for item in s.items %}
+    {% assign file_path = "/oer_materials/" | append: item.file %}
+    {% assign uploaded = false %}
+    {% for f in site.static_files %}{% if f.path == file_path %}{% assign uploaded = true %}{% endif %}{% endfor %}
+    <div class="sw-card">
+      <h3>{{ item.title }}{% if item.course %} ({{ item.course }}){% endif %}</h3>
+      <p>{{ item.description }}</p>
+      <div class="sw-buttons">
+        {% if uploaded %}
+          <a class="sw-btn" href="{{ base_path }}{{ file_path }}">{{ item.button | default: "Download PDF" }} &darr;</a>
+        {% else %}
+          <span class="sw-badge">Coming soon</span>
+        {% endif %}
+        {% if item.link %}<a class="sw-btn" href="{{ item.link }}">View online &rarr;</a>{% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+{% endfor %}

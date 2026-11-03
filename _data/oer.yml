@@ -1,0 +1,41 @@
+# OER Materials page (/oer_materials/). Sections and items appear in this order.
+#
+# HOW TO PUBLISH A BOOK: upload the PDF into the oer_materials/ folder on GitHub
+# using the exact file name listed below. The "Coming soon" label changes to a
+# Download button by itself. To use a different file name, change "file" here.
+#
+# You can edit any title or description. To add a book, copy an item.
+# "link" (optional) adds a second button, e.g. to an online version.
+
+- section: Field Courses
+  id: field-courses
+  items:
+    - title: Wildlife and Plant Conservation Field Methods Textbook
+      course: BIOL 17
+      description: A field guide and lab manual covering local California flora, fauna, and field survey techniques.
+      file: biol17_wildlife_plant_conservation_textbook.pdf
+    - title: Field Biology Textbook
+      course: BIOL 7
+      description: A textbook for BIOL 7, Field Biology.
+      file: biol7_field_biology_textbook.pdf
+
+- section: Environmental Science
+  id: environmental-science
+  items:
+    - title: Environmental Science Manual
+      description: A manual for environmental science courses.
+      file: environmental_science_manual.pdf
+    - title: Environmental Science Interactive Study Guide
+      description: A complete dataset and flashcard deck for identifying regional taxa, designed for integration with Anki or Knowt.
+      file: environmental_science_study_guide.zip
+      button: Download Study Guide
+
+- section: Plant and Soil Science
+  id: plant-soil-science
+  items:
+    - title: Plant Science Lab Manual
+      description: A lab manual for plant science courses.
+      file: plant_science_lab_manual.pdf
+    - title: Soil Science Lab Manual
+      description: A lab manual for soil science courses.
+      file: soil_science_lab_manual.pdf

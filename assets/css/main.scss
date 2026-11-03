@@ -162,3 +162,51 @@ a:hover {
     border-radius: 5px !important;
     margin-bottom: 5px !important;
 }
+
+/* ===== Section bars, cards and buttons (Apps and Software, OER Materials) ===== */
+/* Jump-to menu */
+.sw-jump { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.5em 0 2em; }
+.sw-jump a {
+  background: #3d454a; border: 2px solid #3d454a; border-radius: 999px;
+  padding: 0.3em 1em; font-size: 0.85em; text-decoration: none;
+}
+.sw-jump a:hover { border-color: #5ed1ff; }
+
+/* Section headers: full-width white bar with a blue accent, clearly bigger than app names */
+.sw-section { margin: 0 0 2.5em; scroll-margin-top: 80px; }
+.sw-section > h2 {
+  width: auto !important; font-size: 1.4em !important;
+  border-left: 8px solid #5ed1ff; padding: 0.4em 0.7em !important; margin: 0 0 0.6em !important;
+}
+.sw-section > p.sw-intro { display: inline-block; margin: 0 0 0.9em; }
+
+/* App cards: each app sits in its own box */
+.sw-card {
+  background: rgba(30, 36, 40, 0.92); border: 1px solid #5a646a; border-radius: 10px;
+  padding: 1em 1.2em 1.2em; margin: 0 0 1em 1.2em;
+}
+.sw-card > h3 {
+  background: none !important; color: #5ed1ff !important; padding: 0 !important;
+  font-size: 1.15em !important; margin: 0 0 0.4em !important;
+}
+.sw-card > h3::before { content: "\25B8\00a0"; }
+.page__content .sw-card p, .archive .sw-card p {
+  background: none !important; padding: 0 !important; margin: 0 0 0.8em;
+}
+.sw-card img { max-width: 100%; border: 1px solid #5a646a; border-radius: 6px; display: block; margin-top: 0.8em; }
+.sw-card img.sw-phone { max-width: 300px; }
+
+/* Buttons */
+.sw-buttons { display: flex; flex-wrap: wrap; gap: 0.6em; }
+.sw-btn {
+  display: inline-block; background: #fff; color: #3d454a !important; border-radius: 6px;
+  padding: 0.4em 1em; font-size: 0.9em; text-decoration: none;
+}
+.sw-btn:hover { background: #5ed1ff; color: #1e2428 !important; }
+
+@media (max-width: 600px) { .sw-card { margin-left: 0; } }
+/* Status badge for items not uploaded yet */
+.sw-badge {
+  display: inline-block; background: #5a646a; color: #fff; border-radius: 999px;
+  padding: 0.25em 0.9em; font-size: 0.8em; font-weight: bold;
+}
