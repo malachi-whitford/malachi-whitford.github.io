@@ -25,10 +25,6 @@
     - title: Environmental Science Manual
       description: A manual for environmental science courses.
       file: environmental_science_manual.pdf
-    - title: Environmental Science Interactive Study Guide
-      description: A complete dataset and flashcard deck for identifying regional taxa, designed for integration with Anki or Knowt.
-      file: environmental_science_study_guide.zip
-      button: Download Study Guide
 
 - section: Plant and Soil Science
   id: plant-soil-science
