@@ -210,3 +210,68 @@ a:hover {
   display: inline-block; background: #5a646a; color: #fff; border-radius: 999px;
   padding: 0.25em 0.9em; font-size: 0.8em; font-weight: bold;
 }
+
+/* ===== Top menu: dark, readable text on the light bar (and in the ☰ dropdown) ===== */
+.masthead {
+    background-color: #f4f5f5 !important;
+}
+.masthead a,
+.greedy-nav a,
+.greedy-nav .visible-links a,
+.greedy-nav .hidden-links a,
+#theme-toggle a {
+    color: #2b3236 !important;
+}
+.masthead a:hover,
+.greedy-nav a:hover {
+    color: #0a7fa8 !important;
+}
+.greedy-nav .hidden-links {
+    background-color: #ffffff !important;
+}
+.greedy-nav .hidden-links li {
+    background: none !important;
+}
+.greedy-nav button .navicon,
+.greedy-nav button .navicon:before,
+.greedy-nav button .navicon:after {
+    background-color: #2b3236 !important;
+}
+
+/* ===== Phones and tablets ===== */
+@media (max-width: 1023px) {
+    /* iPhones don't support a fixed page background, so pin the photo behind the page instead */
+    html {
+        background-color: #A3A0A0 !important;
+    }
+    body {
+        background-image: none !important;
+        background-attachment: scroll !important;
+        background-color: transparent !important;
+    }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: -1;
+        background: #A3A0A0 url('/images/background.png') center center / cover no-repeat;
+    }
+    /* Less padding so the text column isn't squeezed */
+    .page, .archive {
+        padding: 14px 4px !important;
+    }
+    .sidebar {
+        padding: 10px 4px !important;
+    }
+    /* Long headings wrap neatly instead of running to the edge */
+    h1, h2, h3, h4, h5, h6, .page__title, .archive__title {
+        max-width: 100% !important;
+        overflow-wrap: break-word;
+    }
+    /* Section bars and app cards: slightly tighter */
+    .sw-section > h2 { font-size: 1.2em !important; }
+    .sw-card { padding: 0.9em 1em 1em; }
+    .sw-jump a { font-size: 0.8em; }
+    /* Long links (license names, URLs) wrap instead of pushing the page wider */
+    .page__content a, .archive a { overflow-wrap: anywhere; }
+}
