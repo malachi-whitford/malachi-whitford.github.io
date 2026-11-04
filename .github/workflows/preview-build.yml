@@ -1,0 +1,20 @@
+name: Temporary preview build
+on:
+  push:
+    branches: [gallery-preview]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with: { ruby-version: "3.2", bundler-cache: true }
+      - run: bundle exec jekyll build
+      - name: Save built site to the branch for review
+        run: |
+          rm -rf _preview_site && mv _site _preview_site
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f _preview_site && git commit -q -m "built site" && git push -q

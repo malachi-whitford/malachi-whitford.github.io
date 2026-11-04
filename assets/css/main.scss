@@ -212,8 +212,22 @@ a:hover {
 }
 
 /* ===== Top menu: dark, readable text on the light bar (and in the ☰ dropdown) ===== */
+/* Keep the menu bar light even when a phone or computer is in dark mode */
 .masthead {
+    --global-bg-color: #f4f5f5;
+    --global-border-color: #c9cfd2;
+    --global-text-color: #2b3236;
+    --global-masthead-link-color: #2b3236;
+    --global-masthead-link-color-hover: #0a7fa8;
     background-color: #f4f5f5 !important;
+}
+.masthead__inner-wrap, .greedy-nav, .greedy-nav .visible-links, .masthead__menu-item {
+    background-color: #f4f5f5 !important;
+}
+/* Footer: light text so it's readable on the footer color in both light and dark mode */
+.page__footer, footer {
+    --global-text-color-light: #eef2f4;
+    color: #eef2f4 !important;
 }
 .masthead a,
 .greedy-nav a,
