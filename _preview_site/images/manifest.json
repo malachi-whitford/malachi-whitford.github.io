@@ -1,0 +1,19 @@
+{
+	"name": "About Me",
+	"short_name": "Malachi Whitford, Ph.D.",
+	"description": "Malachi Whitford, Ph.D. — ecologist and professor of Environmental Science and Biology at Clovis Community College, studying predator-prey interactions and mentoring undergraduate field researchers.",
+	"start_url": "/",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "/images/favicon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/favicon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
